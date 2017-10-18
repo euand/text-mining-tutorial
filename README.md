@@ -30,17 +30,13 @@ The contents of the tutorial folder are as follows:
 5. setup.py: File for compiling Cython code into C library.
 
 ### BUILDING
+## PREREQUISITES
+In order to build this project you need to install [Docker](https://www.docker.com/)
+## RUNNING NOTEBOOKS
 To run a Jupyter Notebook with `topicmodels` installed please run
 ```bash
 $ make run-notebook
 ```
-
-### FOLLOWING THE TUTORIAL
-
-The tutorial can either be followed using the plain tutorial.py script; by using ipython; or by using ipython with qtconsole for enhanced graphics.  To initiate the latter, type “jupyter qtconsole” (or in older versions "ipython qtconsole")  You should make sure that your current working directory is the tutorial folder.  To check this, you can type “pwd” to see the working directory.  If you need to change it, use the cd command.  
-
-The easiest option is to copy and paste the commands from the notebook into ipython (the notebook can be viewed on http://nbviewer.ipython.org/github/sekhansen/text-mining-tutorial/blob/master/tutorial_notebook.ipynb and is also provided for convenience).  
-
 
 ### PERFORMANCE
 

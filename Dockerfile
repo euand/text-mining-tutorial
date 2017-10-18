@@ -8,7 +8,10 @@ RUN apt-get update && \
                         gsl-bin \
                         libgsl0-dev \
                         build-essential \
-                        clang && \
+                        clang \
+                        libpng12-dev \
+                        libfreetype6-dev \
+                        pkg-config && \
      apt-get clean && \
      rm -rf /var/lib/apt/lists/* \
             /tmp/* \
@@ -18,7 +21,12 @@ RUN pip install cython \
                 numpy \
                 jupyter \
                 nltk \
-                pandas
+                pandas \
+                matplotlib \
+                scipy
+
+RUN apt-get update && \
+    apt-get install python-scipy
 
 ADD . /text-mining-tutorial/
 

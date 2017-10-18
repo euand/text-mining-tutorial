@@ -1,4 +1,4 @@
-This README describes the step by step installation to incorporate GSL into 
+This README describes the step by step installation to incorporate GSL into
 Stephen Hansen's Topic Modelling Python package
 
 ## OSX-64, Linux-64 or Linux-32
@@ -9,7 +9,7 @@ sudo apt-get install build-essential
 
 Step 2: Install GSL on your machine.
 
-Follow Aaron Meurer's (https://binstar.org/asmeurer) Conda installation for 
+Follow Aaron Meurer's (https://binstar.org/asmeurer) Conda installation for
 GSL files  by typing the following line in your terminal:
 
 conda install -c https://conda.binstar.org/asmeurer gsl
@@ -38,27 +38,28 @@ if sys.platform == "win32":
 else:
 	include_gsl_dir = sys.exec_prefix+"\\include"
 	lib_gsl_dir = sys.exec_prefix+"\\lib"
-ext = Extension("samplers", ["samplers.pyx"],
-	include_dirs=[numpy.get_include(),
-	include_gsl_dir],
-	library_dirs=[lib_gsl_dir],
-	libraries=["gsl","gslcblas","m"]
+
+ext = Extension("samplers",
+ ["topicmodels/samplers/samplers_lda.pyx"],
+ include_dirs=[numpy.get_include(), include_gsl_dir],
+ library_dirs=[lib_gsl_dir],
+ libraries=["gsl","gslcblas","m"]
 )
 
 setup(name = "samplers",
 	ext_modules=[ext],
 	cmdclass = {'build_ext': build_ext})
-	
+
 
 ---------------------------
 
 Step 5: CD in your Terminal into the folder with the GitHub files and the
-edited setup.py file. 
+edited setup.py file.
 
 Step 6: Execute the following commands in your Terminal:
 
 python setup.py build_ext --inplace
-python setup.py install 
+python setup.py install
 
 Step 7: Ensure that samplers.so is now in /home/usr/anaconda/lib/site-packages.
 
@@ -68,7 +69,7 @@ The samplers module is now installed on your machine with GSL
 
 Step 1: Install GSL on your machine.
 
-Download the .zip from the following link: 
+Download the .zip from the following link:
 
 https://code.google.com/p/oscats/downloads/detail?name=gsl-1.15-dev-win64.zip&can=2&q=
 
@@ -87,8 +88,8 @@ with the folder name "gsl" such that the structure is as follows:
 
 Step 3: Add the "...\Anaconda\gsl\bin\" location to your system wide PATH variable.
 
-Control Panel > System Security > System > Advanced System Settings > 
-Environment Variables > System Variables, and editing PATH to include 
+Control Panel > System Security > System > Advanced System Settings >
+Environment Variables > System Variables, and editing PATH to include
 "C:\Users\UserName\Anaconda\gsl\bin"
 
 Step 4: Download the Topic Modelling files from Stephen Hansen's github repo:
@@ -120,18 +121,18 @@ ext = Extension("samplers", ["samplers.pyx"],
 setup(name = "samplers",
 	ext_modules=[ext],
 	cmdclass = {'build_ext': build_ext})
-	
+
 Step 6: CD in your Terminal into the folder with the GitHub files and the
-edited setup.py file. 
+edited setup.py file.
 
 Step 7: Execute the following command in your Terminal:
 
 python setup.py build_ext --inplace
-python setup.py install 
+python setup.py install
 
 TROUBLESHOOTING STEP 7:
 
-To run Cython on windows, you need certain dependencies which 
+To run Cython on windows, you need certain dependencies which
 may or may not be already installed on your machine.
 
 You need Microsoft 2008 Visual Studio installed:
@@ -146,4 +147,3 @@ http://sourceforge.net/projects/tdm-gcc/?source=typ_redirect
 Step 8: Ensure that samplers.pyd is now in /home/usr/anaconda/lib/site-packages/
 
 The samplers module is now installed on your machine with GSL
-

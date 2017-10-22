@@ -20,14 +20,6 @@ ext = Extension("topicmodels.samplers.samplers_lda",
                  library_dirs=[lib_gsl_dir],
                  libraries=["gsl", "gslcblas", "m"])
 
-########
-# uncomment code block below to use numpy only without GSL
-########
-
-#ext = Extension("topicmodels.samplers.samplers_lda",
-#                 ["topicmodels/samplers/samplers_lda.pyx"],
-#                 include_dirs=[numpy.get_include()])
-#
 setup(name="topicmodels",
       ext_modules=[ext],
       packages=['topicmodels', 'topicmodels.LDA', 'topicmodels.multimix','topicmodels.samplers'],
